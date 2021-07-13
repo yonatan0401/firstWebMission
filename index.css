@@ -1,0 +1,48 @@
+body{
+    background: cornflowerblue;
+}
+
+.container{
+   
+}
+
+.mainList{
+    margin-right: 30%;
+    width: 60%;
+    list-style: none;
+    /* display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center; */
+}
+.mainList li{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-top: 2%;
+    /* padding: 5px; */
+}
+.mainList p, button{
+    margin-left: 5%;
+    /* margin-top: 2%; */
+}
+
+.mainList button{
+    background: none;
+    border: none;
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+#addForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+}
+
+#addForm button{
+    width: 50%; 
+}
