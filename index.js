@@ -1,6 +1,5 @@
-const formSubmit = (event) => {
-    // event.preventDefault()
-    if (validateMail() && validateDays()) {
+const formSubmit = () => {
+    if ( validateName() && validateMail() && validateDays() ) {
         // this is when validation is ok
         const name = document.getElementById("nameInput").value
         const mail = document.getElementById("mailInput").value
@@ -9,13 +8,27 @@ const formSubmit = (event) => {
         addListItem(name, mail, Number(days))
     } else {
         //when validation is not ok
+        return false
+    }
+}
+
+const validateName = () => {
+    console.log("validating name")
+    let re = /^[A-Za-z]+$/;
+    const name = document.getElementById("nameInput").value
+    if(re.test(name)){
+        return true
+    }else{
+        alert("הכנס שם בפורמט נכון")
+        return true
     }
 }
 
 const validateMail = () => {
     console.log("validating email");
+    let re = /\S+@\S+\.\S+/;
     const mail = document.getElementById("mailInput").value
-    if (mail.includes("@") && mail.includes(".")) {
+    if (mail.includes("@") && mail.includes(".") && re.test(mail)) {
         return true
     } else {
         alert(`"${mail}" is not a valid Email`)
@@ -27,7 +40,8 @@ const validateDays = () => {
     console.log("validating number of days in isolation")
     const days = document.getElementById("daysInput").value
     const num = Number(days)
-    if(isNaN(days) && (num > 0 && num < 14) || num == 14 || num == 0){
+    console.log(num, isNaN(days), (num > 0 && num < 14));
+    if(!isNaN(days) && ((num > 0 && num < 14) || (num == 14 || num == 0))){
         return true
     }else{
         alert("יש להכניס מספר בין 0 - 14 לשדה ימי בידוד")
@@ -57,7 +71,7 @@ const addListItem = (name, mail, dateInDays) => {
     dateP.innerText = formatDate(tempDate)
     button.innerHTML = "&#10006";
 
-    listItem.setAttribute('id', sickList.childElementCount)
+    listItem.setAttribute('id', sickList.childElementCount == 0 ? sickList.childElementCount:String(Number(sickList.lastChild.getAttribute("id")) + 1))
     button.setAttribute('onClick', "deleteRow(this)")
     console.log(listItem, nameP, mailP, dateP, sickList);
     
