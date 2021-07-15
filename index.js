@@ -1,4 +1,5 @@
 let sickPeople = []; // the list of people
+let isHiddenShows = false
 
 if (localStorage.getItem("sickPeople")){
     sickPeople = JSON.parse(localStorage.getItem("sickPeople"))
@@ -23,6 +24,15 @@ const formSubmit = () => {
     }
 }
 
+const showHiddenTitle = () => {
+    isHiddenShows = !isHiddenShows
+    if (isHiddenShows){
+        document.getElementById("hidden").style.display = "block";
+    }else{
+        document.getElementById("hidden").style.display = "none";
+    }
+}
+
 /*
 *validate name
 */
@@ -43,7 +53,7 @@ const validateName = () => {
 */
 const validateMail = () => {
     // console.log("validating email");
-    let re = /\S+@\S+\.\S+/;
+    let re = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
     const mail = document.getElementById("mailInput").value
     if (mail.includes("@") && mail.includes(".") && re.test(mail)) {
         return true

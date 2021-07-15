@@ -4,18 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="index.css">
     <script src="index.js"></script>
     <div id="eventListener"></div>
     <title>mamasbogrim</title>
 </head>
-<body dir="rtl" lang="he">
+<body" dir="rtl" lang="he">
     <div class="container">
         <center>
-            <h1 id="mainHeader">כותרת מסויימת</h1>
+            <h1 style="display: none;" id="hidden">סליחה על העיצוב הממש גרוע!</h1>
+            <h1 id="mainHeader" onclick="showHiddenTitle()" >ניהול חולים</h1>
             <form id="addForm">
                 <label name="name">שם</label>
                 <input id="nameInput" type="text">
@@ -25,25 +23,11 @@
                 <input id="daysInput" type="text">
             </form>
             <button style="margin-top: 2%;width: 10%;margin-right: 4%;" onclick="formSubmit()">הוסף</button>
-            <!-- <script>
-                            /*
-            -- event listeners:
-            */
-            const form = document.getElementById("addForm")
-            form.addEventListener("submit", formSubmit, true);
-            </script> -->
-            <!-- <p><a href="https://giphy.com/gifs/follow-me-party-rock-q0KrtRcr10Bhu">via GIPHY</a></p> -->
         </center>
         <center>
             <iframe style="margin-top: 2%;display: none;" id="gif" src="https://giphy.com/embed/q0KrtRcr10Bhu" width="480" height="261" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
         </center>
             <ul class="mainList" id="mainList">
-                  <!-- <li>
-                    <button onClick="(e) => validateMail(e)">&#10006;</button>
-                    <p>שם</p>
-                    <p>מייל</p>
-                    <p>תאריך עזיבה</p>
-                </li> -->
             </ul>
         </div>
         <script>
